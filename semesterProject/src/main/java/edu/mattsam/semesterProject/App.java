@@ -39,7 +39,7 @@ public class App extends Application{
 		}
 		
 		String sqlCreateTable = "create table semesterGrades("
-				+ "ID int),"
+				+ "ID int,"
 				+ " class VARCHAR(70),"
 				+ " name VARCHAR(70),"
 				+ " type VARCHAR(70),"

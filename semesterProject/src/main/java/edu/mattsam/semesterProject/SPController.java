@@ -132,10 +132,9 @@ public class SPController {
     @FXML
     void saveSciencebtn() {
     	try {
-    		Statement stmt = conn.createStatement();
 			String insertStudent = String.format("insert into semesterGrades(ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
     		+ "class, name, type, earnedPoints, maxPoints)"
-					+ " values ('Science', '%s', '%s', %f, %f, %f)", scienceNametf.getText(), , rate);
+					+ " values ('Science', '%s', '%s', %f, %f, %f)", scienceNametf.getText(), scienceType.getSelectionModel().getSelectedItem() , Double.parseDouble(earnedScience.getText()), Double.parseDouble(maxScience.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -170,7 +169,5 @@ public class SPController {
 			e.printStackTrace();
 		}
     }
-    
-    
     
 }

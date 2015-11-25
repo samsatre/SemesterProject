@@ -50,15 +50,20 @@
                         <TextField fx:id="maxScience" layoutX="345.0" layoutY="142.0" />
                         <Label layoutX="247.0" layoutY="22.0" text="Name" />
                         <TextField fx:id="scienceNametf" layoutX="344.0" layoutY="18.0" />
-                        <ChoiceBox fx:id="scienceType" layoutX="25.0" layoutY="43.0" prefWidth="150.0">
+                        <MenuButton fx:id="scienceType" layoutX="44.0" layoutY="39.0" mnemonicParsing="false" onAction="#onScienceType" text="Select Assignment Type">
+                          <items>
+                              <Menu mnemonicParsing="false" text="Unspecified Menu" />
+                          </items>
+                        </MenuButton>
+                        <ChoiceBox layoutX="48.0" layoutY="84.0" prefWidth="150.0">
                            <contextMenu>
                               <ContextMenu>
                                 <items>
                                   <MenuItem mnemonicParsing="false" text="Test" />
-                                    <MenuItem mnemonicParsing="false" text="Quiz" />
+                                  <MenuItem mnemonicParsing="false" text="Quiz" />
+                                    <MenuItem mnemonicParsing="false" text="HomeWork" />
                                     <MenuItem mnemonicParsing="false" text="Lab" />
-                                    <MenuItem mnemonicParsing="false" text="Homework" />
-                                    <MenuItem mnemonicParsing="false" text="other" />
+                                    <MenuItem mnemonicParsing="false" text="Other" />
                                 </items>
                               </ContextMenu>
                            </contextMenu>
