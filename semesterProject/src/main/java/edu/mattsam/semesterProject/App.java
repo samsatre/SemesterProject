@@ -33,23 +33,21 @@ public class App extends Application{
 		Statement stmt = conn.createStatement();
 		
 		try {
-			String dropTable = "drop table semesterGrades";
-			stmt.execute(dropTable);
-		} catch (SQLException e) {
+			String sqlCreateTable = "create table semesterGrades("
+					+ " ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
+					+ " class VARCHAR(70),"
+					+ " name VARCHAR(70),"
+					+ " type VARCHAR(70),"
+					+ " earnedPoints float, "
+					+ " maxPoints float, "
+					+ " primary key(ID)"
+					+ ")";
+			
+			
+			stmt.execute(sqlCreateTable);
+		} catch (Exception e) {
+			//table already exists
 		}
-		
-		String sqlCreateTable = "create table semesterGrades("
-				+ "ID int,"
-				+ " class VARCHAR(70),"
-				+ " name VARCHAR(70),"
-				+ " type VARCHAR(70),"
-				+ " earnedPoints float, "
-				+ " maxPoints float, "
-				+ " primary key(ID)"
-				+ ")";
-		
-		
-		stmt.execute(sqlCreateTable);
 		conn.close();
 		launch(args);
 	}
