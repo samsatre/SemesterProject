@@ -200,19 +200,20 @@ public class SPController {
 
 	@FXML
 	void saveSciencebtn() {
-		try {
-			String insertStudent = String.format(
-					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-							+ " values ('Science', '%s', '%s', %f, %f)",
-					scienceNametf.getText(), scienceType.getText(), Double.parseDouble(earnedScience.getText()),
-					Double.parseDouble(maxScience.getText()));
-			stmt.execute(insertStudent);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+////			String insertStudent = String.format(
+////					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+////							+ " values ('Science', '%s', '%s', %f, %f)",
+////					scienceNametf.getText(), scienceType.getText(), Double.parseDouble(earnedScience.getText()),
+////					Double.parseDouble(maxScience.getText()));
+////			stmt.execute(insertStudent);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
+
 
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();
