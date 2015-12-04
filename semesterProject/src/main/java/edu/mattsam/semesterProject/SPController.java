@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class SPController {
 
@@ -28,112 +30,173 @@ public class SPController {
 	private Course Computer = new Course();
 
 	@FXML
-	private RadioButton radioQuizL;
+    private RadioButton radioQuizL;
 
-	@FXML
-	private RadioButton radioTestL;
+    @FXML
+    private RadioButton radioTestL;
 
-	@FXML
-	private TextField maxMath;
+    @FXML
+    private TextField maxMath;
 
-	@FXML
-	private RadioButton radioQuizM;
+    @FXML
+    private RadioButton radioQuizM;
 
-	@FXML
-	private TextField earnedScience;
+    @FXML
+    private Tab totalsTab;
 
-	@FXML
-	private TextField earnedMath;
+    @FXML
+    private TextField earnedScience;
 
-	@FXML
-	private TextField earnedLanguage;
+    @FXML
+    private TextField earnedMath;
 
-	@FXML
-	private RadioButton radioTestC;
+    @FXML
+    private TextField earnedLanguage;
 
-	@FXML
-	private TextField scienceNametf;
+    @FXML
+    private RadioButton radioTestC;
 
-	@FXML
-	private Button saveComputer;
+    @FXML
+    private TextField scienceNametf;
 
-	@FXML
-	private Tab mathTab;
+    @FXML
+    private Button saveComputer;
 
-	@FXML
-	private Tab personalTab;
+    @FXML
+    private Tab mathTab;
 
-	@FXML
-	private RadioButton radioQuizC;
+    @FXML
+    private Tab personalTab;
 
-	@FXML
-	private Label LanguangeLetterGrade;
+    @FXML
+    private RadioButton radioQuizC;
 
-	@FXML
-	private RadioButton radioLabC;
+    @FXML
+    private Label LanguangeLetterGrade;
 
-	@FXML
-	private Button saveMath;
+    @FXML
+    private RadioButton radioHomeworkM;
 
-	@FXML
-	private Button saveScience;
+    @FXML
+    private TextField languageNametf;
 
-	@FXML
-	private Label scienceLetterGrade;
+    @FXML
+    private RadioButton radioLabC;
 
-	@FXML
-	private RadioButton radioLabM;
+    @FXML
+    private Button saveMath;
 
-	@FXML
-	private RadioButton radioLabL;
+    @FXML
+    private RadioButton radioHomeworkL;
 
-	@FXML
-	private Button personalInfoSave;
+    @FXML
+    private Button graphButton;
 
-	@FXML
-	private Label ComputerLetterGrade;
+    @FXML
+    private Label scienceLetterGrade;
 
-	@FXML
-	private TextField scienceType;
+    @FXML
+    private RadioButton radioLabM;
 
-	@FXML
-	private Button languageSave;
+    @FXML
+    private RadioButton radioLabL;
 
-	@FXML
-	private Tab computerTab;
+    @FXML
+    private RadioButton radioHomeworkS;
 
-	@FXML
-	private TextField maxLanguage;
+    @FXML
+    private Button personalInfoSave;
 
-	@FXML
-	private TextField maxScience;
+    @FXML
+    private Button scienceSave;
 
-	@FXML
-	private Tab scienceTab;
+    @FXML
+    private Label ComputerLetterGrade;
 
-	@FXML
-	private TextField earnedComputer;
+    @FXML
+    private RadioButton radioOtherM;
 
-	@FXML
-	private TextArea studentID;
+    @FXML
+    private Button languageSave;
 
-	@FXML
-	private RadioButton radioECL;
+    @FXML
+    private Tab computerTab;
 
-	@FXML
-	private Tab languageTab;
+    @FXML
+    private ToggleGroup assignment;
 
-	@FXML
-	private TextField maxComputer;
+    @FXML
+    private RadioButton radioLabS;
 
-	@FXML
-	private RadioButton radioECM;
+    @FXML
+    private RadioButton radioOtherS;
 
-	@FXML
-	private Label MathLetterGrade;
+    @FXML
+    private TextField maxLanguage;
 
-	@FXML
-	private RadioButton radioTestM;
+    @FXML
+    private TextField maxScience;
+
+    @FXML
+    private Tab scienceTab;
+
+    @FXML
+    private TextField earnedComputer;
+
+    @FXML
+    private RadioButton radioHomeworkC;
+
+    @FXML
+    private RadioButton radioOtherL;
+
+    @FXML
+    private TextArea studentID;
+
+    @FXML
+    private Tab languageTab;
+
+    @FXML
+    private TextField maxComputer;
+
+    @FXML
+    private RadioButton radioOtherC;
+
+    @FXML
+    private RadioButton radioTestS;
+
+    @FXML
+    private Label MathLetterGrade;
+
+    @FXML
+    private RadioButton radioQuizS;
+
+    @FXML
+    private RadioButton radioTestM;
+
+    @FXML
+    void checkGradesButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveScienceButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void languageSaveButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void computerSaveButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void mathSaveButton(ActionEvent event) {
+
+    }
 
 	@FXML
 	void saveSciencebtn() {
@@ -150,24 +213,6 @@ public class SPController {
 		}
 
 	}
-
-	@FXML
-	void languageSavebtn() {
-
-	}
-
-	@FXML
-	void saveComputerbtn() {
-
-	}
-
-	@FXML
-	void saveMathbtn() {
-
-	}
-
-	@FXML
-	private Button buttonGraph;
 
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();
