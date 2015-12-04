@@ -22,6 +22,10 @@ public class SPController {
 	Connection conn = null;
 	private Statement stmt = null;
 	private ArrayList<Assignment> grades = new ArrayList<Assignment>();
+	private Course Science = new Course();
+	private Course Language = new Course();
+	private Course Math = new Course();
+	private Course Computer = new Course();
 
 	@FXML
 	private RadioButton radioQuizL;
@@ -165,23 +169,50 @@ public class SPController {
 	@FXML
 	private Button buttonGraph;
 
-	public void updateGrades() throws SQLException {
-
+	public void updateGrades() throws Exception {
+		Science.clearAssignments();
+		Language.clearAssignments();
+		Math.clearAssignments();
+		Computer.clearAssignments();
+		Assignment tmpAssign = null;
+		
 		ArrayList<Assignment> newGrades = new ArrayList<Assignment>();
 		String select = "select ID, class, name, type, earnedPoints, maxPoints from semesterGrades";
 		ResultSet results = stmt.executeQuery(select);
 		while (results.next()) {
+			String classe = results.getString("class");
 			switch (results.getString("type")) {
-			case ("Test"):
+			case ("Test"):	tmpAssign = new Test(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
 				break;
-			case ("Homework"):
+			case ("Homework"): tmpAssign = new Homework(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
 				break;
-			case ("Quiz"):
+			case ("Quiz"):	tmpAssign = new Quiz(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
 				break;
-			case ("Lab"):
+			case ("Lab"):	tmpAssign = new Lab(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
 				break;
-			case ("Other"):
+			case ("Other"):	tmpAssign = new Assignment(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
 				break;
+			}
+			if(classe.equals("Science"))
+			{
+				Science.addAssignment(tmpAssign);
+			}
+			else if(classe.equals("Language"))
+			{
+				Language.addAssignment(tmpAssign);	
+			}
+			else if(classe.equals("Math"))
+			{
+				Math.addAssignment(tmpAssign);			
+			}
+			else if(classe.equals("Computer"))
+			{
+				Computer.addAssignment(tmpAssign);		
+			}
+			else
+			{
+				System.out.println("Does not have class in row. should not get here.");
+				throw new Exception();
 			}
 
 		}
