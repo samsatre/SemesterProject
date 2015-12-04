@@ -48,6 +48,8 @@ public class App extends Application{
 		} catch (Exception e) {
 			//table already exists
 		}
+		
+		
 		conn.close();
 		launch(args);
 	}

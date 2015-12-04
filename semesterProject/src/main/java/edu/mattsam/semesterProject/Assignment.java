@@ -7,7 +7,9 @@ public class Assignment implements Serializable{
 	private double maxP;
 	private double earnedP;
 	private double bonusP; 
-	
+	private double average;
+	private double totalPoints;
+	private double totalAssignments;
 	public Assignment(String n, double max, double earned, double bonus)
 	{
 		this.name = n;
@@ -16,6 +18,27 @@ public class Assignment implements Serializable{
 		this.bonusP = bonus;
 	}
 	
+	public double getTotalPoints(){
+		return totalPoints;
+	}
+	
+	public void setTotalPoints(){
+		
+	}
+	
+	public double getTotalAssignments(){
+		return totalAssignments;
+	}
+	
+	public double getAverage(){
+		
+		return average;
+	}
+	
+	public void setAverage(double average){
+		average = totalPoints/totalAssignments;
+		this.average= average;
+	}
 	public String getName() {
 		return name;
 	}
