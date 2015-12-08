@@ -17,12 +17,15 @@ public class App extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		//Load the FXML file
+		
+		//Req #9
 		Parent parent = FXMLLoader.load(getClass().getResource("SemesterProject.fxml"));
 		
 		//Set up a scene using the FXML file
 		Scene scene = new Scene(parent);
 		
 		//Set up our stage using the scene
+		
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -33,6 +36,17 @@ public class App extends Application{
 
 		Statement stmt = conn.createStatement();
 		
+//		try {
+//			String dropTable = "drop table semesterGrades";
+//			stmt.execute(dropTable);
+//			System.out.println("Semester Grades table dropped.");
+//		} catch (SQLException e) {
+//			System.out.println("Semester Grades table does not exist.");
+//			e.printStackTrace();
+//		}
+		
+		
+		//REQ#7
 		try {
 			String sqlCreateTable = "create table semesterGrades("
 					+ " ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
@@ -50,6 +64,7 @@ public class App extends Application{
 			//table already exists
 		}
 		
+		//REQ #8
 		try {
 			String sqlStatement = "SELECT * FROM semesterGrades";
 			ResultSet result = stmt.executeQuery(sqlStatement);
@@ -57,7 +72,10 @@ public class App extends Application{
 				System.out.printf(result.getString("name"),result.getString("class"),result.getString("type"));
 				
 			}
+			
+			//REQ#11
 		}catch (Exception e){
+			
 			System.out.println("The data could not print correctly.");
 			e.printStackTrace();
 		}
