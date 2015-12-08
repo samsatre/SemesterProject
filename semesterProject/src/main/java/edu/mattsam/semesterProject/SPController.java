@@ -105,8 +105,9 @@ public class SPController {
     @FXML
     private RadioButton radioHomeworkL;
 
-//	    @FXML
-//      private Button graphButton;
+//    @FXML
+//    private Button graphButton;
+
 
     @FXML
     private Label scienceLetterGrade;
@@ -208,24 +209,24 @@ public class SPController {
 			e.printStackTrace();
 		}
 	}
+	
 	@FXML
-	void mathSaveButton() {
-		try {
-			String insertStudent = String.format(
-					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-							+ " values ('Math', '%s', '%s', %f, %f)",
-					mathNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedMath.getText()),
-					Double.parseDouble(maxMath.getText()));
-			stmt.execute(insertStudent);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		void saveMathButton() {
+			try {
+				String insertStudent = String.format(
+						"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+								+ " values ('Math', '%s', '%s', %f, %f)",
+						mathNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedMath.getText()),
+						Double.parseDouble(maxMath.getText()));
+				stmt.execute(insertStudent);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	
 	@FXML
-	void languageSaveButton() {
+	void saveLanguageButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -241,13 +242,13 @@ public class SPController {
 	}
 	
 	@FXML
-	void computerSaveButton() {
+	void saveComputerButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
 							+ " values ('Science', '%s', '%s', %f, %f)",
 					computerNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedComputer.getText()),
-					Double.parseDouble(maxComputer.getText()));
+				Double.parseDouble(maxComputer.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -256,7 +257,7 @@ public class SPController {
 
 	}
 	
-
+	
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();
 		Language.clearAssignments();
