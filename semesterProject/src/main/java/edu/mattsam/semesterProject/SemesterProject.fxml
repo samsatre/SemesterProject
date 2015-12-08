@@ -59,7 +59,7 @@
                               <RadioButton fx:id="radioOtherS" layoutX="14.0" layoutY="150.0" mnemonicParsing="false" text="Other" toggleGroup="$assignment" />
                               <TextField fx:id="earnedScience" layoutX="264.0" layoutY="134.0" />
                               <Label layoutX="310.0" layoutY="97.0" text="Enter Score" />
-                              <Button fx:id="scienceSave" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#saveScienceButton" text="Save Score" />
+                              <Button fx:id="scienceSave" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#scienceSaveButton" text="Save Score" />
                               <TextField fx:id="maxScience" layoutX="264.0" layoutY="218.0" />
                               <Label layoutX="312.0" layoutY="185.0" text="Max Points" />
                               <Label layoutX="291.0" layoutY="22.0" text="Assignment Name" />

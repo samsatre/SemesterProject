@@ -196,7 +196,7 @@ public class SPController {
     }
 
 	@FXML
-	void saveScienceButton() {
+	void scienceSaveButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -211,7 +211,7 @@ public class SPController {
 	}
 	
 	@FXML
-		void saveMathButton() {
+		void mathSaveButton() {
 			try {
 				String insertStudent = String.format(
 						"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -226,7 +226,7 @@ public class SPController {
 	}
 	
 	@FXML
-	void saveLanguageButton() {
+	void languageSaveButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -242,7 +242,7 @@ public class SPController {
 	}
 	
 	@FXML
-	void saveComputerButton() {
+	void computerSaveButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
