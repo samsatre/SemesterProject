@@ -69,7 +69,7 @@ public class App extends Application{
 			String sqlStatement = "SELECT * FROM semesterGrades";
 			ResultSet result = stmt.executeQuery(sqlStatement);
 			while (result.next()){
-				System.out.printf(result.getString("name"),result.getString("class"),result.getString("type"));
+				System.out.println(result.getString("name") + " " +result.getString("class") + " " +result.getString("type"));
 				
 			}
 			

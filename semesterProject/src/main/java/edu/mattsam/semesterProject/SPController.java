@@ -196,12 +196,13 @@ public class SPController {
     }
 
 	@FXML
-	void saveScienceButton() {
+	void scienceSaveButton() {
 		try {
+			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
 							+ " values ('Science', '%s', '%s', %f, %f)",
-					scienceNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedScience.getText()),
+					scienceNametf.getText(), type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedScience.getText()),
 					Double.parseDouble(maxScience.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
@@ -211,7 +212,7 @@ public class SPController {
 	}
 	
 	@FXML
-		void saveMathButton() {
+		void mathSaveButton() {
 			try {
 				String insertStudent = String.format(
 						"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -226,7 +227,7 @@ public class SPController {
 	}
 	
 	@FXML
-	void saveLanguageButton() {
+	void languageSaveButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
@@ -242,7 +243,7 @@ public class SPController {
 	}
 	
 	@FXML
-	void saveComputerButton() {
+	void computerSaveButton() {
 		try {
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
