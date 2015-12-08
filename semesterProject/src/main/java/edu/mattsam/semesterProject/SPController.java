@@ -30,6 +30,16 @@ public class SPController {
 	private Course Computer = new Course();
 
 	@FXML
+    private Label scienceGradeDisp;
+	@FXML
+    private Label languageGradeDisp;
+	@FXML
+    private Label computerGradeDisp;
+	@FXML
+    private Label mathGradeDisp;
+	
+	
+ 	@FXML
     private RadioButton radioQuizL;
 
     @FXML
@@ -58,6 +68,12 @@ public class SPController {
 
     @FXML
     private TextField scienceNametf;
+    
+    @FXML
+    private TextField mathNametf;
+    
+    @FXML
+    private TextField computerNametf;
 
     @FXML
     private Button saveComputer;
@@ -89,8 +105,8 @@ public class SPController {
     @FXML
     private RadioButton radioHomeworkL;
 
-    @FXML
-    private Button graphButton;
+//	    @FXML
+//      private Button graphButton;
 
     @FXML
     private Label scienceLetterGrade;
@@ -174,46 +190,72 @@ public class SPController {
     private RadioButton radioTestM;
 
     @FXML
-    void checkGradesButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void saveScienceButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void languageSaveButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void computerSaveButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void mathSaveButton(ActionEvent event) {
-
+    void checkGradesButton(ActionEvent event) throws Exception {
+    	updateGrades(); 
     }
 
 	@FXML
-	void saveSciencebtn() {
-//		try {
-////			String insertStudent = String.format(
-////					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-////							+ " values ('Science', '%s', '%s', %f, %f)",
-////					scienceNametf.getText(), scienceType.getText(), Double.parseDouble(earnedScience.getText()),
-////					Double.parseDouble(maxScience.getText()));
-////			stmt.execute(insertStudent);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	void saveScienceButton() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Science', '%s', '%s', %f, %f)",
+					scienceNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedScience.getText()),
+					Double.parseDouble(maxScience.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	void mathSaveButton() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Math', '%s', '%s', %f, %f)",
+					mathNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedMath.getText()),
+					Double.parseDouble(maxMath.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
+	
+	@FXML
+	void languageSaveButton() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Language', '%s', '%s', %f, %f)",
+					languageNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedLanguage.getText()),
+					Double.parseDouble(maxLanguage.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+	}
+	
+	@FXML
+	void computerSaveButton() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Science', '%s', '%s', %f, %f)",
+					computerNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedComputer.getText()),
+					Double.parseDouble(maxComputer.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();
@@ -262,6 +304,11 @@ public class SPController {
 			}
 
 		}
+		scienceGradeDisp.setText(Science.getLetterGrade());
+		languageGradeDisp.setText(Language.getLetterGrade());
+		computerGradeDisp.setText(Computer.getLetterGrade());;
+		mathGradeDisp.setText(Math.getLetterGrade());
+		
 	}
 
 	@FXML

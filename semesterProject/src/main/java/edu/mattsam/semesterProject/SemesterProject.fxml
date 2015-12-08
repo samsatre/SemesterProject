@@ -35,10 +35,10 @@
                         <Label fx:id="LanguangeLetterGrade" layoutX="125.0" layoutY="150.0" />
                         <Label fx:id="ComputerLetterGrade" layoutX="125.0" layoutY="192.0" />
                         <Label fx:id="MathLetterGrade" layoutX="125.0" layoutY="230.0" />
-                        <Label layoutX="110.0" layoutY="111.0" text="Grade" />
-                        <Label layoutX="110.0" layoutY="150.0" text="Grade" />
-                        <Label layoutX="109.0" layoutY="192.0" text="Grade" />
-                        <Label layoutX="109.0" layoutY="230.0" text="Grade" />
+                        <Label fx:id="scienceGradeDisp" layoutX="110.0" layoutY="111.0" text="Grade" />
+                        <Label fx:id="languageGradeDisp" layoutX="110.0" layoutY="150.0" text="Grade" />
+                        <Label fx:id="computerGradeDisp" layoutX="109.0" layoutY="192.0" text="Grade" />
+                        <Label fx:id="mathGradeDisp" layoutX="109.0" layoutY="230.0" text="Grade" />
                      </children>
                   </AnchorPane>
             </content>
