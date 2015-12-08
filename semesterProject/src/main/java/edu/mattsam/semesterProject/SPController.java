@@ -58,6 +58,12 @@ public class SPController {
 
     @FXML
     private TextField scienceNametf;
+    
+    @FXML
+    private TextField mathNametf;
+    
+    @FXML
+    private TextField computerNametf;
 
     @FXML
     private Button saveComputer;
@@ -89,8 +95,8 @@ public class SPController {
     @FXML
     private RadioButton radioHomeworkL;
 
-    @FXML
-    private Button graphButton;
+//    @FXML
+//    private Button graphButton;
 
     @FXML
     private Label scienceLetterGrade;
@@ -200,20 +206,68 @@ public class SPController {
 
 	@FXML
 	void saveSciencebtn() {
-//		try {
-////			String insertStudent = String.format(
-////					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-////							+ " values ('Science', '%s', '%s', %f, %f)",
-////					scienceNametf.getText(), scienceType.getText(), Double.parseDouble(earnedScience.getText()),
-////					Double.parseDouble(maxScience.getText()));
-////			stmt.execute(insertStudent);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Science', '%s', '%s', %f, %f)",
+					scienceNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedScience.getText()),
+					Double.parseDouble(maxScience.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
+	
+	@FXML
+	void saveMathbtn() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Math', '%s', '%s', %f, %f)",
+					mathNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedMath.getText()),
+					Double.parseDouble(maxMath.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+	}
+	
+	@FXML
+	void saveLanguagebtn() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Language', '%s', '%s', %f, %f)",
+					languageNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedLanguage.getText()),
+					Double.parseDouble(maxLanguage.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	@FXML
+	void saveComputerbtn() {
+		try {
+			String insertStudent = String.format(
+					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
+							+ " values ('Science', '%s', '%s', %f, %f)",
+					computerNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedComputer.getText()),
+					Double.parseDouble(maxComputer.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();

@@ -2,6 +2,7 @@ package edu.mattsam.semesterProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -47,6 +48,18 @@ public class App extends Application{
 			stmt.execute(sqlCreateTable);
 		} catch (Exception e) {
 			//table already exists
+		}
+		
+		try {
+			String sqlStatement = "SELECT * FROM semesterGrades";
+			ResultSet result = stmt.executeQuery(sqlStatement);
+			while (result.next()){
+				System.out.printf(result.getString("name"),result.getString("class"),result.getString("type"));
+				
+			}
+		}catch (Exception e){
+			System.out.println("The data could not print correctly.");
+			e.printStackTrace();
 		}
 		
 		
