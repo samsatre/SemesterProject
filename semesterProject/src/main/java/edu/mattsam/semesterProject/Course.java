@@ -5,60 +5,104 @@ import java.util.ArrayList;
 public class Course {
 
 	private ArrayList<Assignment> assignmentList = new ArrayList<>();
-	
-	public void clearAssignments()
-	{
+
+	public void clearAssignments() {
 		assignmentList.clear();
 	}
-	
-	public void addAssignment(Assignment a)
-	{
+
+	public void addAssignment(Assignment a) {
 		assignmentList.add(a);
 	}
-	public double getGrade()
-	{
+
+	public double getGrade() {
 		double totalEarned = 0;
 		double totalMax = 0;
-		for(Assignment a : assignmentList)
-		{
+		for (Assignment a : assignmentList) {
 			totalEarned += a.getEarnedP();
 			totalMax += a.getMaxP();
 		}
-		return totalEarned/totalMax;
+		return (totalEarned / totalMax) * 100;
 	}
-	
-	public String getLetterGrade()
-	{
-		double grade = getGrade()*100;
-		if(grade >=90)
-		{
+
+	public double getTestAverage() {
+		double totalEarned = 0;
+		double totalMax = 0;
+		for (Assignment a : assignmentList) {
+			if (a instanceof Test) {
+				totalEarned += a.getEarnedP();
+				totalMax += a.getMaxP();
+
+			}
+		}if (totalMax > 0) {
+			return (totalEarned / totalMax) * 100;
+		} else
+			return 0;
+	}
+
+	public double getQuizAverage() {
+		double totalEarned = 0;
+		double totalMax = 0;
+		for (Assignment a : assignmentList) {
+			if (a instanceof Quiz) {
+				totalEarned += a.getEarnedP();
+				totalMax += a.getMaxP();
+
+			}
+		}if (totalMax > 0) {
+			return (totalEarned / totalMax) * 100;
+		} else
+			return 0;
+	}
+
+	public double getLabAverage() {
+		double totalEarned = 0;
+		double totalMax = 0;
+		for (Assignment a : assignmentList) {
+			if (a instanceof Test) {
+				totalEarned += a.getEarnedP();
+				totalMax += a.getMaxP();
+
+			}
+		}
+		if (totalMax > 0) {
+			return (totalEarned / totalMax) * 100;
+		} else
+			return 0;
+	}
+
+	public double getHomework() {
+		double totalEarned = 0;
+		double totalMax = 0;
+		for (Assignment a : assignmentList) {
+			if (a instanceof Test) {
+				totalEarned += a.getEarnedP();
+				totalMax += a.getMaxP();
+
+			}
+		}if (totalMax > 0) {
+			return (totalEarned / totalMax) * 100;
+		} else
+			return 0;
+	}
+
+	public String getLetterGrade() {
+		double grade = getGrade();
+		if (grade >= 90) {
 			return "A";
-		}
-		else if(grade >=87)
-		{
+		} else if (grade >= 87) {
 			return "B+";
-		}
-		else if(grade >=80)
-		{
+		} else if (grade >= 80) {
 			return "B";
-		}
-		else if(grade >=77)
-		{
+		} else if (grade >= 77) {
 			return "C+";
-		}
-		else if(grade >=70)
-		{
+		} else if (grade >= 70) {
 			return "C";
-		}
-		else if(grade >=60)
-		{
+		} else if (grade >= 60) {
 			return "D";
-		}
-		else
-		{
+		} else {
 			return "You are a failure";
 		}
-		
+
 	}
-	
+
 }

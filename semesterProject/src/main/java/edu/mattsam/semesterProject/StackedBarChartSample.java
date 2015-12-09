@@ -19,7 +19,7 @@ public class StackedBarChartSample extends Application {
 	final static String language = "Language Arts";
 	final static String computer = "Computer";
 	final static String math = "Math";
-	final static String extraCredit = "Extra Credit";
+	final static String homework = "Homework";
 	final CategoryAxis xAxis = new CategoryAxis();
 	final NumberAxis yAxis = new NumberAxis();
 	final StackedBarChart<String, Number> sbc = new StackedBarChart<>(xAxis, yAxis);
@@ -63,7 +63,7 @@ public class StackedBarChartSample extends Application {
 		assignment3.getData().add(new XYChart.Data<>(computer, 18.18));
 		assignment3.getData().add(new XYChart.Data<>(math, 17.31));
 
-		assignment4.setName("Extra Credit");
+		assignment4.setName("Homework");
 		assignment4.getData().add(new XYChart.Data<>(science, 60.65));
 		assignment4.getData().add(new XYChart.Data<>(language, 76.76));
 		assignment4.getData().add(new XYChart.Data<>(computer, 90.18));

@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +18,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 
 public class SPController {
 
@@ -164,9 +170,12 @@ public class SPController {
 	@FXML
 	private RadioButton radioOtherL;
 
-	@FXML
-	private TextArea studentID;
+//	@FXML
+//	private TextArea studentID;
 
+	@FXML
+	private StackedBarChart<String, Number> sbc;
+	
 	@FXML
 	private Tab languageTab;
 
@@ -187,6 +196,75 @@ public class SPController {
 
 	@FXML
 	private RadioButton radioTestM;
+	
+	@FXML
+	private CategoryAxis classesAxis; 
+	@FXML
+	private NumberAxis averageAxis;
+	
+	@FXML
+	public void showGraph(){
+		XYChart.Series<String, Number> ScienceTest = new XYChart.Series<>();
+		XYChart.Series<String, Number> ScienceQuiz = new XYChart.Series<>();
+		XYChart.Series<String, Number> ScienceHomework = new XYChart.Series<>();
+		XYChart.Series<String, Number> ScienceLab = new XYChart.Series<>();
+		
+		XYChart.Series<String, Number> ComputerTest = new XYChart.Series<>();
+		XYChart.Series<String, Number> ComputerQuiz = new XYChart.Series<>();
+		XYChart.Series<String, Number> ComputerHomework = new XYChart.Series<>();
+		XYChart.Series<String, Number> ComputerLab = new XYChart.Series<>();
+		
+		XYChart.Series<String, Number> MathTest = new XYChart.Series<>();
+		XYChart.Series<String, Number> MathQuiz = new XYChart.Series<>();
+		XYChart.Series<String, Number> MathHomework = new XYChart.Series<>();
+		XYChart.Series<String, Number> MathLab = new XYChart.Series<>();
+		
+		XYChart.Series<String, Number> LanguageTest = new XYChart.Series<>();
+		XYChart.Series<String, Number> LanguageQuiz = new XYChart.Series<>();
+		XYChart.Series<String, Number> LanguageHomework = new XYChart.Series<>();
+		XYChart.Series<String, Number> LanguageLab = new XYChart.Series<>();
+		
+		
+		final  String science = "Science";
+		final  String language = "Language Arts";
+		final  String computer = "Computer";
+		final  String math = "Math";
+		final  String homework = "Homework";
+		
+		classesAxis.setLabel("Classes");
+		classesAxis.setCategories(
+				FXCollections.<String> observableArrayList(Arrays.asList(science, language, computer, math)));
+		averageAxis.setLabel("Average Score");
+		
+		//ScienceTest.setName("Test");
+		ScienceTest.getData().add(new XYChart.Data<>(science, Science.getTestAverage()));
+		ScienceLab.getData().add(new XYChart.Data<>(science, Science.getLabAverage()));
+		ScienceQuiz.getData().add(new XYChart.Data<>(science,  Science.getQuizAverage()));
+		ScienceHomework.getData().add(new XYChart.Data<>(science,  Science.getHomework()));
+		
+//		ScienceTest.setName("Lab");
+		ComputerTest.getData().add(new XYChart.Data<>(computer, Computer.getTestAverage()));
+		ComputerLab.getData().add(new XYChart.Data<>(computer, Computer.getLabAverage()));
+		ComputerQuiz.getData().add(new XYChart.Data<>(computer, Computer.getQuizAverage()));
+		ComputerHomework.getData().add(new XYChart.Data<>(computer, Computer.getHomework()));
+//
+//		assignment3.setName("Homework");
+		MathTest.getData().add(new XYChart.Data<>(math, Math.getTestAverage()));
+		MathLab.getData().add(new XYChart.Data<>(math, Math.getLabAverage()));
+		MathQuiz.getData().add(new XYChart.Data<>(math, Math.getQuizAverage()));
+		MathHomework.getData().add(new XYChart.Data<>(math, Math.getHomework()));
+		
+//		assignment4.setName("Quiz");
+		LanguageTest.getData().add(new XYChart.Data<>(language, Language.getTestAverage()));
+		LanguageLab.getData().add(new XYChart.Data<>(language, Language.getLabAverage()));
+		LanguageQuiz.getData().add(new XYChart.Data<>(computer, Language.getQuizAverage()));
+		LanguageHomework.getData().add(new XYChart.Data<>(math, Language.getHomework()));
+		
+		sbc.getData().addAll(ScienceTest,ScienceQuiz, ScienceLab,ScienceHomework);
+		sbc.getData().addAll(ComputerTest,ComputerQuiz, ComputerLab,ComputerHomework);
+		sbc.getData().addAll(MathTest,MathQuiz, MathLab,MathHomework);
+		sbc.getData().addAll(LanguageTest,LanguageQuiz, LanguageLab,LanguageHomework);
+	}
 
 	@FXML
 	void checkGradesButton(ActionEvent event) throws Exception {
@@ -342,7 +420,7 @@ public class SPController {
 	}
 
 	@FXML
-	void initialize() {
+	void initialize() throws Exception {
 		try {
 			conn = DriverManager.getConnection(DB_URL);
 			stmt = conn.createStatement();
@@ -350,6 +428,9 @@ public class SPController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		updateGrades();
 	}
 
+	
 }

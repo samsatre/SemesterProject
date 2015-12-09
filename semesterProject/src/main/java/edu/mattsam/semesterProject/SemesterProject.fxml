@@ -27,8 +27,6 @@
                         <Label layoutX="15.0" layoutY="106.0" prefHeight="23.0" prefWidth="97.0" text="Science:" />
                         <Label layoutX="15.0" layoutY="230.0" prefHeight="16.0" prefWidth="99.0" text="Math:" />
                         <Accordion layoutX="172.0" layoutY="79.0" />
-                        <Label layoutX="172.0" layoutY="45.0" prefHeight="16.0" prefWidth="42.0" text="Name:" />
-                        <TextArea fx:id="studentID" layoutX="214.0" layoutY="34.0" prefHeight="36.0" prefWidth="257.0" />
                         <Label layoutX="89.0" layoutY="79.0" text="Letter Grade" />
                         <Button fx:id="personalInfoSave" layoutX="289.0" layoutY="93.0" mnemonicParsing="false" onAction="#checkGradesButton" text="Check Grades!" />
                         <Label fx:id="scienceLetterGrade" layoutX="125.0" layoutY="111.0" />
@@ -147,7 +145,15 @@
                <content>
                   <AnchorPane fx:id="graphButton" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="graphButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Show Graph" />
+                        <Button fx:id="graphButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showGraph" text="Show Graph" />
+                        <StackedBarChart fx:id="sbc" layoutX="95.0" layoutY="14.0">
+                          <xAxis>
+                            <CategoryAxis fx:id="classesAxis" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="averageAxis" side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
                      </children></AnchorPane>
                </content>
             </Tab>
