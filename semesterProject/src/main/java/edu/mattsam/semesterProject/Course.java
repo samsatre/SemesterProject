@@ -29,7 +29,7 @@ public class Course {
 	
 	public String getLetterGrade()
 	{
-		double grade = getGrade();
+		double grade = getGrade()*100;
 		if(grade >=90)
 		{
 			return "A";
