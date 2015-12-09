@@ -214,10 +214,11 @@ public class SPController {
 	@FXML
 		void mathSaveButton() {
 			try {
+				String type = assignment.getSelectedToggle().toString();
 				String insertStudent = String.format(
 						"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
 								+ " values ('Math', '%s', '%s', %f, %f)",
-						mathNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedMath.getText()),
+						mathNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedMath.getText()),
 						Double.parseDouble(maxMath.getText()));
 				stmt.execute(insertStudent);
 			} catch (SQLException e) {
@@ -229,10 +230,11 @@ public class SPController {
 	@FXML
 	void languageSaveButton() {
 		try {
+			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
 							+ " values ('Language', '%s', '%s', %f, %f)",
-					languageNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedLanguage.getText()),
+					languageNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedLanguage.getText()),
 					Double.parseDouble(maxLanguage.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
@@ -245,10 +247,11 @@ public class SPController {
 	@FXML
 	void computerSaveButton() {
 		try {
+			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format(
 					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
 							+ " values ('Science', '%s', '%s', %f, %f)",
-					computerNametf.getText(), assignment.getSelectedToggle().toString(), Double.parseDouble(earnedComputer.getText()),
+					computerNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedComputer.getText()),
 				Double.parseDouble(maxComputer.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
