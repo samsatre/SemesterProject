@@ -30,212 +30,227 @@ public class SPController {
 	private Course Computer = new Course();
 
 	@FXML
-    private Label scienceGradeDisp;
+	private Label scienceGradeDisp;
 	@FXML
-    private Label languageGradeDisp;
+	private Label languageGradeDisp;
 	@FXML
-    private Label computerGradeDisp;
+	private Label computerGradeDisp;
 	@FXML
-    private Label mathGradeDisp;
-	
-	
- 	@FXML
-    private RadioButton radioQuizL;
+	private Label mathGradeDisp;
 
-    @FXML
-    private RadioButton radioTestL;
+	@FXML
+	private RadioButton radioQuizL;
 
-    @FXML
-    private TextField maxMath;
+	@FXML
+	private RadioButton radioTestL;
 
-    @FXML
-    private RadioButton radioQuizM;
+	@FXML
+	private TextField maxMath;
 
-    @FXML
-    private Tab totalsTab;
+	@FXML
+	private RadioButton radioQuizM;
 
-    @FXML
-    private TextField earnedScience;
+	@FXML
+	private Tab totalsTab;
 
-    @FXML
-    private TextField earnedMath;
+	@FXML
+	private TextField earnedScience;
 
-    @FXML
-    private TextField earnedLanguage;
+	@FXML
+	private TextField earnedMath;
 
-    @FXML
-    private RadioButton radioTestC;
+	@FXML
+	private TextField earnedLanguage;
 
-    @FXML
-    private TextField scienceNametf;
-    
-    @FXML
-    private TextField mathNametf;
-    
-    @FXML
-    private TextField computerNametf;
+	@FXML
+	private RadioButton radioTestC;
 
-    @FXML
-    private Button saveComputer;
+	@FXML
+	private TextField scienceNametf;
 
-    @FXML
-    private Tab mathTab;
+	@FXML
+	private TextField mathNametf;
 
-    @FXML
-    private Tab personalTab;
+	@FXML
+	private TextField computerNametf;
 
-    @FXML
-    private RadioButton radioQuizC;
+	@FXML
+	private Button saveComputer;
 
-    @FXML
-    private Label LanguangeLetterGrade;
+	@FXML
+	private Tab mathTab;
 
-    @FXML
-    private RadioButton radioHomeworkM;
+	@FXML
+	private Tab personalTab;
 
-    @FXML
-    private TextField languageNametf;
+	@FXML
+	private RadioButton radioQuizC;
 
-    @FXML
-    private RadioButton radioLabC;
+	@FXML
+	private Label LanguangeLetterGrade;
 
-    @FXML
-    private Button saveMath;
+	@FXML
+	private RadioButton radioHomeworkM;
 
-    @FXML
-    private RadioButton radioHomeworkL;
+	@FXML
+	private TextField languageNametf;
 
-//    @FXML
-//    private Button graphButton;
+	@FXML
+	private RadioButton radioLabC;
 
+	@FXML
+	private Button saveMath;
 
-    @FXML
-    private Label scienceLetterGrade;
+	@FXML
+	private RadioButton radioHomeworkL;
 
-    @FXML
-    private RadioButton radioLabM;
+	// @FXML
+	// private Button graphButton;
 
-    @FXML
-    private RadioButton radioLabL;
+	@FXML
+	private Label scienceLetterGrade;
 
-    @FXML
-    private RadioButton radioHomeworkS;
+	@FXML
+	private RadioButton radioLabM;
 
-    @FXML
-    private Button personalInfoSave;
+	@FXML
+	private RadioButton radioLabL;
 
-    @FXML
-    private Button scienceSave;
+	@FXML
+	private RadioButton radioHomeworkS;
 
-    @FXML
-    private Label ComputerLetterGrade;
+	@FXML
+	private Button personalInfoSave;
 
-    @FXML
-    private RadioButton radioOtherM;
+	@FXML
+	private Button scienceSave;
 
-    @FXML
-    private Button languageSave;
+	@FXML
+	private Label ComputerLetterGrade;
 
-    @FXML
-    private Tab computerTab;
+	@FXML
+	private RadioButton radioOtherM;
 
-    @FXML
-    private ToggleGroup assignment;
+	@FXML
+	private Button languageSave;
 
-    @FXML
-    private RadioButton radioLabS;
+	@FXML
+	private Tab computerTab;
 
-    @FXML
-    private RadioButton radioOtherS;
+	@FXML
+	private ToggleGroup assignment;
 
-    @FXML
-    private TextField maxLanguage;
+	@FXML
+	private RadioButton radioLabS;
 
-    @FXML
-    private TextField maxScience;
+	@FXML
+	private RadioButton radioOtherS;
 
-    @FXML
-    private Tab scienceTab;
+	@FXML
+	private TextField maxLanguage;
 
-    @FXML
-    private TextField earnedComputer;
+	@FXML
+	private TextField maxScience;
 
-    @FXML
-    private RadioButton radioHomeworkC;
+	@FXML
+	private Tab scienceTab;
 
-    @FXML
-    private RadioButton radioOtherL;
+	@FXML
+	private TextField earnedComputer;
 
-    @FXML
-    private TextArea studentID;
+	@FXML
+	private RadioButton radioHomeworkC;
 
-    @FXML
-    private Tab languageTab;
+	@FXML
+	private RadioButton radioOtherL;
 
-    @FXML
-    private TextField maxComputer;
+	@FXML
+	private TextArea studentID;
 
-    @FXML
-    private RadioButton radioOtherC;
+	@FXML
+	private Tab languageTab;
 
-    @FXML
-    private RadioButton radioTestS;
+	@FXML
+	private TextField maxComputer;
 
-    @FXML
-    private Label MathLetterGrade;
+	@FXML
+	private RadioButton radioOtherC;
 
-    @FXML
-    private RadioButton radioQuizS;
+	@FXML
+	private RadioButton radioTestS;
 
-    @FXML
-    private RadioButton radioTestM;
+	@FXML
+	private Label MathLetterGrade;
 
-    @FXML
-    void checkGradesButton(ActionEvent event) throws Exception {
-    	updateGrades(); 
-    }
+	@FXML
+	private RadioButton radioQuizS;
+
+	@FXML
+	private RadioButton radioTestM;
+
+	@FXML
+	void checkGradesButton(ActionEvent event) throws Exception {
+		updateGrades();
+	}
 
 	@FXML
 	void scienceSaveButton() {
 		try {
 			String type = assignment.getSelectedToggle().toString();
-			String insertStudent = String.format(
-					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-							+ " values ('Science', '%s', '%s', %f, %f)",
-					scienceNametf.getText(), type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedScience.getText()),
-					Double.parseDouble(maxScience.getText()));
+			String insertStudent = String.format("insert into semesterGrades("
+					+ " class, name, type, earnedPoints, maxPoints)"
+					+ " values ('Science', '%s', '%s', %f, %f)", scienceNametf
+					.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1), Double.parseDouble(earnedScience
+					.getText()), Double.parseDouble(maxScience.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	@FXML
-		void mathSaveButton() {
-			try {
-				String type = assignment.getSelectedToggle().toString();
-				String insertStudent = String.format(
-						"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-								+ " values ('Math', '%s', '%s', %f, %f)",
-						mathNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedMath.getText()),
-						Double.parseDouble(maxMath.getText()));
-				stmt.execute(insertStudent);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	void mathSaveButton() {
+		try {
+			String type = assignment.getSelectedToggle().toString();
+			String insertStudent = String.format("insert into semesterGrades("
+					+ " class, name, type, earnedPoints, maxPoints)"
+					+ " values ('Math', '%s', '%s', %f, %f)",
+
+			mathNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1),
+					Double.parseDouble(earnedMath.getText()),
+
+					mathNametf.getText(), type.substring(
+							type.lastIndexOf(']') + 2, type.length() - 1),
+					Double.parseDouble(earnedMath.getText()),
+
+					Double.parseDouble(maxMath.getText()));
+			stmt.execute(insertStudent);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
+
 	@FXML
 	void languageSaveButton() {
 		try {
 			String type = assignment.getSelectedToggle().toString();
-			String insertStudent = String.format(
-					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-							+ " values ('Language', '%s', '%s', %f, %f)",
-					languageNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedLanguage.getText()),
-					Double.parseDouble(maxLanguage.getText()));
+			String insertStudent = String.format("insert into semesterGrades("
+					+ " class, name, type, earnedPoints, maxPoints)"
+					+ " values ('Language', '%s', '%s', %f, %f)",
+
+			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1), Double.parseDouble(earnedLanguage
+					.getText()),
+
+			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1), Double.parseDouble(earnedLanguage
+					.getText()),
+
+			Double.parseDouble(maxLanguage.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -243,16 +258,19 @@ public class SPController {
 		}
 
 	}
-	
+
 	@FXML
 	void computerSaveButton() {
 		try {
 			String type = assignment.getSelectedToggle().toString();
-			String insertStudent = String.format(
-					"insert into semesterGrades(" + " class, name, type, earnedPoints, maxPoints)"
-							+ " values ('Science', '%s', '%s', %f, %f)",
-					computerNametf.getText(),  type.substring(type.lastIndexOf(']')+2, type.length()-1), Double.parseDouble(earnedComputer.getText()),
-				Double.parseDouble(maxComputer.getText()));
+			String insertStudent = String.format("insert into semesterGrades("
+					+ " class, name, type, earnedPoints, maxPoints)"
+
+					+ " values ('Computer', '%s', '%s', %f, %f)",
+
+			computerNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1), Double.parseDouble(earnedComputer
+					.getText()), Double.parseDouble(maxComputer.getText()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -260,60 +278,67 @@ public class SPController {
 		}
 
 	}
-	
-	
+
 	public void updateGrades() throws Exception {
 		Science.clearAssignments();
 		Language.clearAssignments();
 		Math.clearAssignments();
 		Computer.clearAssignments();
 		Assignment tmpAssign = null;
-		
+
 		ArrayList<Assignment> newGrades = new ArrayList<Assignment>();
 		String select = "select ID, class, name, type, earnedPoints, maxPoints from semesterGrades";
 		ResultSet results = stmt.executeQuery(select);
 		while (results.next()) {
 			String classe = results.getString("class");
 			switch (results.getString("type")) {
-			case ("Test"):	tmpAssign = new Test(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
+			case ("Test"):
+				tmpAssign = new Test(results.getString("name"),
+						results.getDouble("maxPoints"),
+						results.getDouble("earnedPoints"));
 				break;
-			case ("Homework"): tmpAssign = new Homework(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
+			case ("Homework"):
+				tmpAssign = new Homework(results.getString("name"),
+						results.getDouble("maxPoints"),
+						results.getDouble("earnedPoints"));
 				break;
-			case ("Quiz"):	tmpAssign = new Quiz(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
+			case ("Quiz"):
+				tmpAssign = new Quiz(results.getString("name"),
+						results.getDouble("maxPoints"),
+						results.getDouble("earnedPoints"));
 				break;
-			case ("Lab"):	tmpAssign = new Lab(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
+			case ("Lab"):
+				tmpAssign = new Lab(results.getString("name"),
+						results.getDouble("maxPoints"),
+						results.getDouble("earnedPoints"));
 				break;
-			case ("Other"):	tmpAssign = new Assignment(results.getString("name"),results.getDouble("maxPoints"),results.getDouble("earnedPoints") );
+			case ("Other"):
+				tmpAssign = new Assignment(results.getString("name"),
+						results.getDouble("maxPoints"),
+						results.getDouble("earnedPoints"));
 				break;
 			}
-			if(classe.equals("Science"))
-			{
+			if (classe.equals("Science")) {
 				Science.addAssignment(tmpAssign);
-			}
-			else if(classe.equals("Language"))
-			{
-				Language.addAssignment(tmpAssign);	
-			}
-			else if(classe.equals("Math"))
-			{
-				Math.addAssignment(tmpAssign);			
-			}
-			else if(classe.equals("Computer"))
-			{
-				Computer.addAssignment(tmpAssign);		
-			}
-			else
-			{
-				System.out.println("Does not have class in row. should not get here.");
+			} else if (classe.equals("Language")) {
+				Language.addAssignment(tmpAssign);
+			} else if (classe.equals("Math")) {
+				Math.addAssignment(tmpAssign);
+			} else if (classe.equals("Computer")) {
+				Computer.addAssignment(tmpAssign);
+			} else {
+				System.out
+						.println("Does not have class in row. should not get here.");
 				throw new Exception();
 			}
 
 		}
 		scienceGradeDisp.setText(Science.getLetterGrade());
 		languageGradeDisp.setText(Language.getLetterGrade());
-		computerGradeDisp.setText(Computer.getLetterGrade());;
+		computerGradeDisp.setText(Computer.getLetterGrade());
+		;
 		mathGradeDisp.setText(Math.getLetterGrade());
-		
+
 	}
 
 	@FXML
