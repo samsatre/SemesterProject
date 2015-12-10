@@ -221,7 +221,6 @@ public class SPController {
 		XYChart.Series<String, Number> LanguageHomework = new XYChart.Series<>();
 		XYChart.Series<String, Number> LanguageLab = new XYChart.Series<>();
 		
-		
 		final  String science = "Science";
 		final  String language = "Language Arts";
 		final  String computer = "Computer";
@@ -232,7 +231,6 @@ public class SPController {
 		classesAxis.setCategories(
 				FXCollections.<String> observableArrayList(Arrays.asList(science, language, computer, math)));
 		averageAxis.setLabel("Average Score");
-		
 		//ScienceTest.setName("Test");
 		ScienceTest.getData().add(new XYChart.Data<>(science, Science.getTestAverage()));
 		ScienceLab.getData().add(new XYChart.Data<>(science, Science.getLabAverage()));
@@ -378,11 +376,13 @@ public class SPController {
 		Math.clearAssignments();
 		Computer.clearAssignments();
 		Assignment tmpAssign = null;
-
+		System.out.println("-------------------------------------------");
 		ArrayList<Assignment> newGrades = new ArrayList<Assignment>();
 		String select = "select ID, class, name, type, earnedPoints, maxPoints from semesterGrades";
 		ResultSet results = stmt.executeQuery(select);
 		while (results.next()) {
+			System.out.println(results.getString("name") + " " +results.getString("class") + " " 
+					+results.getString("type") + " " + results.getString("earnedPoints")+ " " + results.getString("maxPoints"));
 			String classe = results.getString("class");
 			switch (results.getString("type")) {
 			case ("Test"):
