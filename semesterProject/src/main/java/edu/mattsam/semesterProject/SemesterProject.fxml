@@ -60,7 +60,7 @@
                     <Button fx:id="scienceSave" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#scienceSaveButton" text="Save Score" />
                     <Label layoutX="291.0" layoutY="22.0" text="Assignment Name" />
                     <TextField fx:id="scienceNametf" layoutX="264.0" layoutY="58.0" />
-                    <RadioButton fx:id="radioHomeworkS" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" />
+                    <RadioButton fx:id="radioHomeworkS" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" toggleGroup="$assignment" />
                   </children>
                 </AnchorPane>
               </children>
@@ -82,7 +82,7 @@
                     <Button fx:id="languageSave" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#languageSaveButton" text="Save Score" />
                     <TextField fx:id="languageNametf" layoutX="264.0" layoutY="58.0" />
                     <Label layoutX="291.0" layoutY="22.0" text="Assignment Name" />
-                    <RadioButton fx:id="radioHomeworkL" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" />
+                    <RadioButton fx:id="radioHomeworkL" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" toggleGroup="$assignment" />
                   </children>
                 </AnchorPane>
               </children>
@@ -104,7 +104,7 @@
                     <Button fx:id="saveComputer" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#computerSaveButton" text="Save Score" />
                     <Label layoutX="291.0" layoutY="22.0" text="Assignment Name" />
                     <TextField fx:id="computerNametf" layoutX="264.0" layoutY="58.0" />
-                    <RadioButton fx:id="radioHomeworkC" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" />
+                    <RadioButton fx:id="radioHomeworkC" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" toggleGroup="$assignment" />
                   </children>
                 </AnchorPane>
               </children>
@@ -126,7 +126,7 @@
                     <Button fx:id="saveMath" layoutX="302.0" layoutY="262.0" mnemonicParsing="false" onAction="#mathSaveButton" text="Save Score" />
                     <TextField fx:id="mathNametf" layoutX="264.0" layoutY="58.0" />
                     <Label layoutX="291.0" layoutY="22.0" text="Assignment Name" />
-                    <RadioButton fx:id="radioHomeworkM" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" />
+                    <RadioButton fx:id="radioHomeworkM" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" text="Homework" toggleGroup="$assignment" />
                   </children>
                 </AnchorPane>
               </children>

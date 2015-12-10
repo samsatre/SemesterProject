@@ -51,8 +51,6 @@ public class SPController {
 	@FXML
 	private RadioButton radioTestL;
 
-	
-
 	@FXML
 	private RadioButton radioQuizM;
 
@@ -152,10 +150,6 @@ public class SPController {
 	@FXML
 	private RadioButton radioOtherS;
 
-	
-
-	
-
 	@FXML
 	private Tab scienceTab;
 
@@ -168,16 +162,14 @@ public class SPController {
 	@FXML
 	private RadioButton radioOtherL;
 
-//	@FXML
-//	private TextArea studentID;
+	// @FXML
+	// private TextArea studentID;
 
 	@FXML
 	private StackedBarChart<String, Number> sbc;
-	
+
 	@FXML
 	private Tab languageTab;
-
-	
 
 	@FXML
 	private RadioButton radioOtherC;
@@ -193,74 +185,52 @@ public class SPController {
 
 	@FXML
 	private RadioButton radioTestM;
-	
+
 	@FXML
-	private CategoryAxis classesAxis; 
+	private CategoryAxis classesAxis;
 	@FXML
 	private NumberAxis averageAxis;
-	
+
 	@FXML
-	public void showGraph(){
-		XYChart.Series<String, Number> ScienceTest = new XYChart.Series<>();
-		XYChart.Series<String, Number> ScienceQuiz = new XYChart.Series<>();
-		XYChart.Series<String, Number> ScienceHomework = new XYChart.Series<>();
-		XYChart.Series<String, Number> ScienceLab = new XYChart.Series<>();
+	public void showGraph() {
 		
-		XYChart.Series<String, Number> ComputerTest = new XYChart.Series<>();
-		XYChart.Series<String, Number> ComputerQuiz = new XYChart.Series<>();
-		XYChart.Series<String, Number> ComputerHomework = new XYChart.Series<>();
-		XYChart.Series<String, Number> ComputerLab = new XYChart.Series<>();
+		final String science = "Science";
+		final String language = "Language Arts";
+		final String computer = "Computer";
+		final String math = "Math";
+		final String homework = "Homework";
 		
-		XYChart.Series<String, Number> MathTest = new XYChart.Series<>();
-		XYChart.Series<String, Number> MathQuiz = new XYChart.Series<>();
-		XYChart.Series<String, Number> MathHomework = new XYChart.Series<>();
-		XYChart.Series<String, Number> MathLab = new XYChart.Series<>();
+		XYChart.Series<String, Number> scienceAverageGraph = new XYChart.Series<>();
+
+		XYChart.Series<String, Number> computerAverageGraph = new XYChart.Series<>();
+
+		XYChart.Series<String, Number> mathAverageGraph = new XYChart.Series<>();
+
+		XYChart.Series<String, Number> languageAverageGraph = new XYChart.Series<>();
+
 		
-		XYChart.Series<String, Number> LanguageTest = new XYChart.Series<>();
-		XYChart.Series<String, Number> LanguageQuiz = new XYChart.Series<>();
-		XYChart.Series<String, Number> LanguageHomework = new XYChart.Series<>();
-		XYChart.Series<String, Number> LanguageLab = new XYChart.Series<>();
-		
-		
-		final  String science = "Science";
-		final  String language = "Language Arts";
-		final  String computer = "Computer";
-		final  String math = "Math";
-		final  String homework = "Homework";
-		
+
 		classesAxis.setLabel("Classes");
-		classesAxis.setCategories(
-				FXCollections.<String> observableArrayList(Arrays.asList(science, language, computer, math)));
+		classesAxis.setCategories(FXCollections
+				.<String> observableArrayList(Arrays.asList(science, language,
+						computer, math)));
 		averageAxis.setLabel("Average Score");
-		
-		//ScienceTest.setName("Test");
-		ScienceTest.getData().add(new XYChart.Data<>(science, Science.getTestAverage()));
-		ScienceLab.getData().add(new XYChart.Data<>(science, Science.getLabAverage()));
-		ScienceQuiz.getData().add(new XYChart.Data<>(science,  Science.getQuizAverage()));
-		ScienceHomework.getData().add(new XYChart.Data<>(science,  Science.getHomework()));
-		
-//		ScienceTest.setName("Lab");
-		ComputerTest.getData().add(new XYChart.Data<>(computer, Computer.getTestAverage()));
-		ComputerLab.getData().add(new XYChart.Data<>(computer, Computer.getLabAverage()));
-		ComputerQuiz.getData().add(new XYChart.Data<>(computer, Computer.getQuizAverage()));
-		ComputerHomework.getData().add(new XYChart.Data<>(computer, Computer.getHomework()));
-//
-//		assignment3.setName("Homework");
-		MathTest.getData().add(new XYChart.Data<>(math, Math.getTestAverage()));
-		MathLab.getData().add(new XYChart.Data<>(math, Math.getLabAverage()));
-		MathQuiz.getData().add(new XYChart.Data<>(math, Math.getQuizAverage()));
-		MathHomework.getData().add(new XYChart.Data<>(math, Math.getHomework()));
-		
-//		assignment4.setName("Quiz");
-		LanguageTest.getData().add(new XYChart.Data<>(language, Language.getTestAverage()));
-		LanguageLab.getData().add(new XYChart.Data<>(language, Language.getLabAverage()));
-		LanguageQuiz.getData().add(new XYChart.Data<>(computer, Language.getQuizAverage()));
-		LanguageHomework.getData().add(new XYChart.Data<>(math, Language.getHomework()));
-		
-		sbc.getData().addAll(ScienceTest,ScienceQuiz, ScienceLab,ScienceHomework);
-		sbc.getData().addAll(ComputerTest,ComputerQuiz, ComputerLab,ComputerHomework);
-		sbc.getData().addAll(MathTest,MathQuiz, MathLab,MathHomework);
-		sbc.getData().addAll(LanguageTest,LanguageQuiz, LanguageLab,LanguageHomework);
+
+		scienceAverageGraph.getData().add(
+				new XYChart.Data<>(science, Science.getPercent()));
+
+		computerAverageGraph.getData().add(
+				new XYChart.Data<>(computer, Computer.getPercent()));
+
+		mathAverageGraph.getData().add(
+				new XYChart.Data<>(math, Math.getPercent()));
+
+		languageAverageGraph.getData().add(
+				new XYChart.Data<>(language, Language.getPercent()));
+
+		sbc.getData().addAll(scienceAverageGraph, computerAverageGraph,
+				mathAverageGraph, languageAverageGraph);
+
 	}
 
 	@FXML
@@ -268,25 +238,24 @@ public class SPController {
 		updateGrades();
 	}
 
-	
-	
 	@FXML
 	void scienceSaveButton() {
 		try {
-			if(!earnedScience.getText().contains("/") && !earnedScience.getText().contains(","))
-		     {
-		          throw new IllegalSeparatorException();
-		      
-			 }
-			StringTokenizer tokens = new StringTokenizer(earnedScience.getText(), " , / ");
-			
+			if (!earnedScience.getText().contains("/")
+					&& !earnedScience.getText().contains(",")) {
+				throw new IllegalSeparatorException();
+
+			}
+			StringTokenizer tokens = new StringTokenizer(
+					earnedScience.getText(), " , / ");
+
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
 					+ " values ('Science', '%s', '%s', %f, %f)", scienceNametf
 					.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(tokens.nextToken())
-					, Double.parseDouble(tokens.nextToken()));
+					type.length() - 1), Double.parseDouble(tokens.nextToken()),
+					Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -297,21 +266,21 @@ public class SPController {
 	@FXML
 	void mathSaveButton() {
 		try {
-			if(!earnedMath.getText().contains("/") && !earnedMath.getText().contains(","))
-		     {
-				//REQ #12
-		          throw new IllegalSeparatorException();
-		      
-			 }
-			StringTokenizer tokens = new StringTokenizer(earnedMath.getText(), " , / ");
+			if (!earnedMath.getText().contains("/")
+					&& !earnedMath.getText().contains(",")) {
+				// REQ #12
+				throw new IllegalSeparatorException();
+
+			}
+			StringTokenizer tokens = new StringTokenizer(earnedMath.getText(),
+					" , / ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
-					+ " values ('Math', '%s', '%s', %f, %f)",
-					mathNametf.getText(), type.substring(
-							type.lastIndexOf(']') + 2, type.length() - 1),
-							Double.parseDouble(tokens.nextToken())
-							, Double.parseDouble(tokens.nextToken()));
+					+ " values ('Math', '%s', '%s', %f, %f)", mathNametf
+					.getText(), type.substring(type.lastIndexOf(']') + 2,
+					type.length() - 1), Double.parseDouble(tokens.nextToken()),
+					Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -319,25 +288,25 @@ public class SPController {
 		}
 	}
 
-	
-	
 	@FXML
 	void languageSaveButton() {
 		try {
-			if(!earnedLanguage.getText().contains("/") && !earnedLanguage.getText().contains(","))
-		     {
-		          throw new IllegalSeparatorException();
-		      
-			 }
-			StringTokenizer tokens = new StringTokenizer(earnedLanguage.getText(), " , / ");
-			
+			if (!earnedLanguage.getText().contains("/")
+					&& !earnedLanguage.getText().contains(",")) {
+				throw new IllegalSeparatorException();
+
+			}
+			StringTokenizer tokens = new StringTokenizer(
+					earnedLanguage.getText(), " , / ");
+
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
 					+ " values ('Language', '%s', '%s', %f, %f)",
-			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(tokens.nextToken())
-					, Double.parseDouble(tokens.nextToken()));
+					languageNametf.getText(), type.substring(
+							type.lastIndexOf(']') + 2, type.length() - 1),
+					Double.parseDouble(tokens.nextToken()), Double
+							.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -349,12 +318,13 @@ public class SPController {
 	@FXML
 	void computerSaveButton() {
 		try {
-			if(!earnedComputer.getText().contains("/") && !earnedComputer.getText().contains(","))
-		     {
-		          throw new IllegalSeparatorException();
-		      
-			 }
-			StringTokenizer tokens = new StringTokenizer(earnedComputer.getText(), " , / ");
+			if (!earnedComputer.getText().contains("/")
+					&& !earnedComputer.getText().contains(",")) {
+				throw new IllegalSeparatorException();
+
+			}
+			StringTokenizer tokens = new StringTokenizer(
+					earnedComputer.getText(), " , / ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
@@ -362,8 +332,8 @@ public class SPController {
 					+ " values ('Computer', '%s', '%s', %f, %f)",
 
 			computerNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(tokens.nextToken())
-					, Double.parseDouble(tokens.nextToken()));
+					type.length() - 1), Double.parseDouble(tokens.nextToken()),
+					Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -411,8 +381,9 @@ public class SPController {
 						results.getDouble("earnedPoints"));
 				break;
 			}
-// REQ #10 .addAssignment is saved to an arrayList of Assignment in the course class, but the subclasses test, homework,
-//lab and other are put in this arraylist.
+			// REQ #10 .addAssignment is saved to an arrayList of Assignment in
+			// the course class, but the subclasses test, homework,
+			// lab and other are put in this arraylist.
 			if (classe.equals("Science")) {
 				Science.addAssignment(tmpAssign);
 			} else if (classe.equals("Language")) {
@@ -445,9 +416,8 @@ public class SPController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		updateGrades();
 	}
 
-	
 }
