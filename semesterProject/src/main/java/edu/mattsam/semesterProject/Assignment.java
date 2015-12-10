@@ -1,8 +1,8 @@
 package edu.mattsam.semesterProject;
 
 import java.io.Serializable;
-
-public class Assignment implements Serializable{
+//	REQ #4 and  REQ #5
+public class Assignment implements Serializable, graded{
 	private String name;
 	private double maxP;
 	private double earnedP; 

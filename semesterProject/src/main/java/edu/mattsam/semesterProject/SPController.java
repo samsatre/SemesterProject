@@ -399,6 +399,8 @@ public class SPController {
 						results.getDouble("earnedPoints"));
 				break;
 			}
+// REQ #10 .addAssignment is saved to an arrayList of Assignment in the course class, but the subclasses test, homework,
+//lab and other are put in this arraylist.
 			if (classe.equals("Science")) {
 				Science.addAssignment(tmpAssign);
 			} else if (classe.equals("Language")) {

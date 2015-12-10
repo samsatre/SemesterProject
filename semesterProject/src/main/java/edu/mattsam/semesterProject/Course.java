@@ -1,8 +1,8 @@
 package edu.mattsam.semesterProject;
 
 import java.util.ArrayList;
-
-public class Course {
+//								 REQ #4
+public class Course implements graded{
 
 	private ArrayList<Assignment> assignmentList = new ArrayList<>();
 
@@ -14,7 +14,7 @@ public class Course {
 		assignmentList.add(a);
 	}
 
-	public double getGrade() {
+	public double getPercent() {
 		double totalEarned = 0;
 		double totalMax = 0;
 		for (Assignment a : assignmentList) {
@@ -86,7 +86,7 @@ public class Course {
 	}
 
 	public String getLetterGrade() {
-		double grade = getGrade();
+		double grade = getPercent();
 		if (grade >= 90) {
 			return "A";
 		} else if (grade >= 87) {
