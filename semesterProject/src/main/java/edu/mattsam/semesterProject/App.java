@@ -31,7 +31,8 @@ public class App extends Application{
 	}
 
 	public static void main(String[] args) throws SQLException {
-		
+		//REQ#1
+		System.out.println("Sam Satre and Matt Vanderveer");
 		Connection conn = DriverManager.getConnection(DB_URL);
 
 		Statement stmt = conn.createStatement();
