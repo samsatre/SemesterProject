@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -50,8 +51,7 @@ public class SPController {
 	@FXML
 	private RadioButton radioTestL;
 
-	@FXML
-	private TextField maxMath;
+	
 
 	@FXML
 	private RadioButton radioQuizM;
@@ -152,11 +152,9 @@ public class SPController {
 	@FXML
 	private RadioButton radioOtherS;
 
-	@FXML
-	private TextField maxLanguage;
+	
 
-	@FXML
-	private TextField maxScience;
+	
 
 	@FXML
 	private Tab scienceTab;
@@ -179,8 +177,7 @@ public class SPController {
 	@FXML
 	private Tab languageTab;
 
-	@FXML
-	private TextField maxComputer;
+	
 
 	@FXML
 	private RadioButton radioOtherC;
@@ -271,16 +268,20 @@ public class SPController {
 		updateGrades();
 	}
 
+	
+	
 	@FXML
 	void scienceSaveButton() {
 		try {
+			StringTokenizer tokens = new StringTokenizer(earnedScience.getText(), ",/ ");
+			
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
 					+ " values ('Science', '%s', '%s', %f, %f)", scienceNametf
 					.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(earnedScience
-					.getText()), Double.parseDouble(maxScience.getText()));
+					type.length() - 1), Double.parseDouble(tokens.nextToken())
+					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -291,6 +292,7 @@ public class SPController {
 	@FXML
 	void mathSaveButton() {
 		try {
+			StringTokenizer tokens = new StringTokenizer(earnedMath.getText(), ",/ ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
@@ -302,9 +304,8 @@ public class SPController {
 
 					mathNametf.getText(), type.substring(
 							type.lastIndexOf(']') + 2, type.length() - 1),
-					Double.parseDouble(earnedMath.getText()),
-
-					Double.parseDouble(maxMath.getText()));
+							Double.parseDouble(tokens.nextToken())
+							, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -312,9 +313,12 @@ public class SPController {
 		}
 	}
 
+	
+	
 	@FXML
 	void languageSaveButton() {
 		try {
+			StringTokenizer tokens = new StringTokenizer(earnedLanguage.getText(), ",/ ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
@@ -325,10 +329,8 @@ public class SPController {
 					.getText()),
 
 			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(earnedLanguage
-					.getText()),
-
-			Double.parseDouble(maxLanguage.getText()));
+					type.length() - 1), Double.parseDouble(tokens.nextToken())
+					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -340,6 +342,7 @@ public class SPController {
 	@FXML
 	void computerSaveButton() {
 		try {
+			StringTokenizer tokens = new StringTokenizer(earnedComputer.getText(), ",/ ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
@@ -347,8 +350,8 @@ public class SPController {
 					+ " values ('Computer', '%s', '%s', %f, %f)",
 
 			computerNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(earnedComputer
-					.getText()), Double.parseDouble(maxComputer.getText()));
+					type.length() - 1), Double.parseDouble(tokens.nextToken())
+					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
