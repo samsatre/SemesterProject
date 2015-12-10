@@ -273,7 +273,12 @@ public class SPController {
 	@FXML
 	void scienceSaveButton() {
 		try {
-			StringTokenizer tokens = new StringTokenizer(earnedScience.getText(), ",/ ");
+			if(!earnedScience.getText().contains("/") && !earnedScience.getText().contains(","))
+		     {
+		          throw new IllegalSeparatorException();
+		      
+			 }
+			StringTokenizer tokens = new StringTokenizer(earnedScience.getText(), " , / ");
 			
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
@@ -283,7 +288,7 @@ public class SPController {
 					type.length() - 1), Double.parseDouble(tokens.nextToken())
 					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -292,22 +297,23 @@ public class SPController {
 	@FXML
 	void mathSaveButton() {
 		try {
-			StringTokenizer tokens = new StringTokenizer(earnedMath.getText(), ",/ ");
+			if(!earnedMath.getText().contains("/") && !earnedMath.getText().contains(","))
+		     {
+				//REQ #12
+		          throw new IllegalSeparatorException();
+		      
+			 }
+			StringTokenizer tokens = new StringTokenizer(earnedMath.getText(), " , / ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
 					+ " values ('Math', '%s', '%s', %f, %f)",
-
-			mathNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1),
-					Double.parseDouble(earnedMath.getText()),
-
 					mathNametf.getText(), type.substring(
 							type.lastIndexOf(']') + 2, type.length() - 1),
 							Double.parseDouble(tokens.nextToken())
 							, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -318,21 +324,22 @@ public class SPController {
 	@FXML
 	void languageSaveButton() {
 		try {
-			StringTokenizer tokens = new StringTokenizer(earnedLanguage.getText(), ",/ ");
+			if(!earnedLanguage.getText().contains("/") && !earnedLanguage.getText().contains(","))
+		     {
+		          throw new IllegalSeparatorException();
+		      
+			 }
+			StringTokenizer tokens = new StringTokenizer(earnedLanguage.getText(), " , / ");
+			
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
 					+ " values ('Language', '%s', '%s', %f, %f)",
-
-			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
-					type.length() - 1), Double.parseDouble(earnedLanguage
-					.getText()),
-
 			languageNametf.getText(), type.substring(type.lastIndexOf(']') + 2,
 					type.length() - 1), Double.parseDouble(tokens.nextToken())
 					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -342,7 +349,12 @@ public class SPController {
 	@FXML
 	void computerSaveButton() {
 		try {
-			StringTokenizer tokens = new StringTokenizer(earnedComputer.getText(), ",/ ");
+			if(!earnedComputer.getText().contains("/") && !earnedComputer.getText().contains(","))
+		     {
+		          throw new IllegalSeparatorException();
+		      
+			 }
+			StringTokenizer tokens = new StringTokenizer(earnedComputer.getText(), " , / ");
 			String type = assignment.getSelectedToggle().toString();
 			String insertStudent = String.format("insert into semesterGrades("
 					+ " class, name, type, earnedPoints, maxPoints)"
@@ -353,7 +365,7 @@ public class SPController {
 					type.length() - 1), Double.parseDouble(tokens.nextToken())
 					, Double.parseDouble(tokens.nextToken()));
 			stmt.execute(insertStudent);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
