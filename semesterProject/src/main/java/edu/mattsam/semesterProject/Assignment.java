@@ -1,19 +1,42 @@
 package edu.mattsam.semesterProject;
 
-public class Assignment {
+import java.io.Serializable;
+//	REQ #4 and  REQ #5
+public class Assignment implements Serializable, graded{
 	private String name;
 	private double maxP;
-	private double earnedP;
-	private double bonusP; 
-	
-	public Assignment(String n, double max, double earned, double bonus)
+	private double earnedP; 
+	private double average;
+	private double totalPoints;
+	private double totalAssignments;
+	public Assignment(String n, double max, double earned)
 	{
 		this.name = n;
 		this.maxP = max;
 		this.earnedP = earned;
-		this.bonusP = bonus;
 	}
 	
+	public double getTotalPoints(){
+		return totalPoints;
+	}
+	
+	public void setTotalPoints(){
+		
+	}
+	
+	public double getTotalAssignments(){
+		return totalAssignments;
+	}
+	
+	public double getAverage(){
+		
+		return average;
+	}
+	
+	public void setAverage(double average){
+		average = totalPoints/totalAssignments;
+		this.average= average;
+	}
 	public String getName() {
 		return name;
 	}
@@ -35,16 +58,9 @@ public class Assignment {
 		this.earnedP = earnedP;
 	}
 	
-	public double getBonusP() {
-		return bonusP;
-	}
-	public void setBonusP(double bonusP) {
-		this.bonusP = bonusP;
-	}
-	
 	public double getPercent()
 	{
-		return (earnedP+bonusP)/maxP *100;
+		return (earnedP)/maxP *100;
 	}
 	
 	public String getLetterGrade()
